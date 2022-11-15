@@ -1,20 +1,15 @@
 import React from 'react';
-import { TodoItem } from './TodoItem'; 
+import '../styles/TodoList.css';
 
-function TodoList () {
+function TodoList (props) {
     
-    const todos = [
-        { text: "Cortar cebolla", completed: false },
-        { text: "Estudiar", completed: false }, 
-        { text: "Trabajar", completed: false }
-    ]
-
+    
     return (
-        <>
-        {todos.map(todo => {
-            return <TodoItem />
-        })}
-        </>);
+        <section>
+            <ul>
+                {props.children}
+            </ul>
+        </section>);
 }
 
 export {TodoList};
