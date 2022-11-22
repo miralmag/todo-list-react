@@ -7,8 +7,9 @@ import { TodoItem } from './TodoItem';
 import Fox from '../images/foxpc.png'
 import '../styles/App.css'
 
+
 const todos = [
-  { text: "Hacer la compra", completed: false },
+  { text: "Hacer la compra", completed: true },
   { text: "Estudiar", completed: false }, 
   { text: "Trabajar", completed: false },
   { text: "Llevar al peque a entrenar", completed: false }
@@ -28,7 +29,10 @@ function App() {
     
     <TodoList>
     {todos.map(todo => {
-            return <TodoItem key={todo.text} text={todo.text}/>
+            return <TodoItem 
+            key={todo.text} 
+            text={todo.text}
+            completed={todo.completed}/>
         })}
     </TodoList>
       
