@@ -1,14 +1,14 @@
 import React from 'react';
 import '../styles/TodoSearch.css';
 
-function TodoSearch () {
+function TodoSearch (props) {
 
     const [searchValue, setSearchValue] =  React.useState('');
 
     const filterTasks = (ev) => {
-        console.log(ev.target.value);
         setSearchValue(ev.target.value);
-
+        const filteredTasks = props.todos.filter((todo) => todo.includes(ev.target.value));
+        return filteredTasks;
     }
 
     return (

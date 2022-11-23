@@ -4,28 +4,32 @@ import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { CreateTodoButton } from './CreateTodoButton';
 import { TodoItem } from './TodoItem';
-import Fox from '../images/foxpc.png'
+import { Aside } from './Aside';
 import '../styles/App.css'
 
 
 const todos = [
-  { text: "Hacer la compra", completed: true },
+  { text: "Hacer la compra", completed: false },
   { text: "Estudiar", completed: false }, 
   { text: "Trabajar", completed: false },
   { text: "Llevar al peque a entrenar", completed: false }
 ]
 
+const completedTasks = todos.filter((todo) => todo.completed).length;
+const totalTasks = todos.length;
+
 
 function App() {
   return (<>
-    <aside className='aside'>
-      <h1><span>get</span><span>shit</span><span>done</span></h1>
-      <img alt='fox' src={Fox} />
-    </aside>
-    <main className='main'>
-    <TodoCounter />
     
-    <TodoSearch />
+    <Aside />
+    
+    <main className='main'>
+    <TodoCounter 
+    completedTasks={completedTasks}
+    totalTasks={totalTasks}/>
+    
+    <TodoSearch todos={todos}/>
     
     <TodoList>
     {todos.map(todo => {
