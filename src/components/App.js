@@ -38,7 +38,8 @@ function App() {
   const completeTasks = (text) => {
     const taskIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
-    newTodos[taskIndex].completed = true;
+    newTodos[taskIndex].completed ? newTodos[taskIndex].completed = false : newTodos[taskIndex].completed = true;
+      
     setTodos(newTodos);
   }
 
