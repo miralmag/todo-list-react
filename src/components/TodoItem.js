@@ -3,9 +3,6 @@ import '../styles/TodoItem.css'
 
 function TodoItem (props) {
     
-    const onDelete = () => {
-        alert('Borraste la tarea' + props.text)
-    }
     return (
         <li className="TodoItem">
             <i 
@@ -16,7 +13,7 @@ function TodoItem (props) {
             </p>
             <i 
             className="fa-solid fa-trash"
-            onClick={onDelete}>
+            onClick={props.onDelete}>
             </i>
         </li>
     );

@@ -42,6 +42,13 @@ function App() {
     setTodos(newTodos);
   }
 
+  const deleteTasks = (text) => {
+    const taskIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos.splice(taskIndex, 1);
+    setTodos(newTodos);
+  };
+
 
   return (<>
     
@@ -65,7 +72,8 @@ function App() {
               key={todo.text} 
               text={todo.text}
               completed={todo.completed}
-              onComplete={() => completeTasks(todo.text)}/>
+              onComplete={() => completeTasks(todo.text)}
+              onDelete={() => deleteTasks(todo.text)}/>
           })}
       </TodoList>
         
