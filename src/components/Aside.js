@@ -5,7 +5,7 @@ import Fox from '../images/foxpc.png'
 function Aside () {
     return (
     <aside className='aside'>
-      <h1><span>get</span><span>shit</span><span>done</span></h1>
+      <h1><span>get</span><span>your</span><span>shit</span><span>done</span></h1>
       <img alt='fox' src={Fox} />
     </aside>
     );

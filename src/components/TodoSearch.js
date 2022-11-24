@@ -3,19 +3,15 @@ import '../styles/TodoSearch.css';
 
 function TodoSearch (props) {
 
-    const [searchValue, setSearchValue] =  React.useState('');
-
     const filterTasks = (ev) => {
-        setSearchValue(ev.target.value);
-        const filteredTasks = props.todos.filter((todo) => todo.includes(ev.target.value));
-        return filteredTasks;
+        props.setSearchValue(ev.target.value);
     }
 
     return (
         <input 
         className="input-search" 
         placeholder = "Tarea"
-        value = {searchValue}
+        value = {props.searchValue}
         onChange = {filterTasks}/>
     );
 }
