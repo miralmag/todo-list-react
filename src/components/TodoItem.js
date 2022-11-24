@@ -2,9 +2,7 @@ import React from 'react';
 import '../styles/TodoItem.css'
 
 function TodoItem (props) {
-    const onComplete = () => {
-        alert('Ya completaste' + props.text)
-    }
+    
     const onDelete = () => {
         alert('Borraste la tarea' + props.text)
     }
@@ -12,9 +10,9 @@ function TodoItem (props) {
         <li className="TodoItem">
             <i 
             className={`fa-regular fa-square-check ${props.completed && 'fa-square-check--active'}`}
-            onClick={onComplete}>
+            onClick={props.onComplete}>
             </i>
-            <p className={`todoItem-p ${props.completed && 'todoItem-p--completed'}`}>{props.text}
+            <p className={`text ${props.completed && 'text--completed'}`}>{props.text}
             </p>
             <i 
             className="fa-solid fa-trash"

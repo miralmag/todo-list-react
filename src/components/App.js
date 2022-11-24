@@ -35,6 +35,13 @@ function App() {
     })
   }
 
+  const completeTasks = (text) => {
+    const taskIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos[taskIndex].completed = true;
+    setTodos(newTodos);
+  }
+
 
   return (<>
     
@@ -57,7 +64,8 @@ function App() {
               return <TodoItem 
               key={todo.text} 
               text={todo.text}
-              completed={todo.completed}/>
+              completed={todo.completed}
+              onComplete={() => completeTasks(todo.text)}/>
           })}
       </TodoList>
         
