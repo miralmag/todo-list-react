@@ -6,6 +6,7 @@ import { TodoList } from './TodoList';
 import { CreateTodoButton } from './CreateTodoButton';
 import { TodoItem } from './TodoItem';
 import { Aside } from './Aside';
+import { Modal } from './Modal';
 import ls from '../services/localStorage';
 import '../styles/App.css'
 
@@ -33,6 +34,7 @@ function App() {
 
 
   const [searchValue, setSearchValue] =  React.useState('');
+  const [openModal, setOpenModal] = React.useState(false);
 
   const completedTasks = todos.filter((todo) => !!todo.completed).length;
   const totalTasks = todos.length;
@@ -90,9 +92,17 @@ function App() {
               onDelete={() => deleteTasks(todo.text)}/>
           })}
       </TodoList>
+
+      {openModal && (
+      <Modal>
+        <p>{searchedTasks[0]?.text}</p>
+      </Modal>)}
         
-      <CreateTodoButton />
-      
+      <CreateTodoButton 
+      setOpenModal = {setOpenModal}
+      openModal = {openModal}
+      />
+
     </main>
 </>);
 }
