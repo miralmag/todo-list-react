@@ -7,6 +7,7 @@ import { CreateTodoButton } from './CreateTodoButton';
 import { TodoItem } from './TodoItem';
 import { Aside } from './Aside';
 import { Modal } from './Modal';
+import { TaskForm } from './TaskForm';
 import ls from '../services/localStorage';
 import '../styles/App.css'
 
@@ -65,6 +66,15 @@ function App() {
     setTodos(newTodos);
   };
 
+  const addTask = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      completed: false,
+      text
+    })
+    setTodos(newTodos);
+  }
+
 
   return (<>
     
@@ -95,7 +105,11 @@ function App() {
 
       {openModal && (
       <Modal>
-        <p>{searchedTasks[0]?.text}</p>
+        <TaskForm 
+        searchedTasks = {searchedTasks}
+        setOpenModal = {setOpenModal}
+        openModal = {openModal}
+        addTask = {addTask}/>
       </Modal>)}
         
       <CreateTodoButton 
