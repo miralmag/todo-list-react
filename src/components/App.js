@@ -12,6 +12,7 @@ import ls from '../services/localStorage';
 import '../styles/App.css'
 
 
+
 // const defaultTodos = [
 //    { text: "Hacer la compra", completed: false },
 //    { text: "Estudiar", completed: false }, 
@@ -21,8 +22,7 @@ import '../styles/App.css'
 
 
 function App() {
-  console.log(ls);
-
+  
   const localStorageTask = ls.get('task', []);
   
   const [todos, setTodos] = useState(localStorageTask);

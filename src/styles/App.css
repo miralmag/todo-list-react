@@ -18,6 +18,7 @@
 }
 .aside h1{
     font-family: 'Bungee Shade', cursive;
+    font-weight: 600;
     font-size: 60px;
     display: flex;
     flex-direction: column;

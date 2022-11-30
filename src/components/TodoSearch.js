@@ -10,7 +10,7 @@ function TodoSearch (props) {
     return (
         <input 
         className="input-search" 
-        placeholder = "Tarea"
+        placeholder = "Busca una tarea de tu lista"
         value = {props.searchValue}
         onChange = {filterTasks}/>
     );
